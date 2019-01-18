@@ -1,0 +1,46 @@
+.tabs_name{
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.ant-tabs .ant-tabs-left-bar .ant-tabs-ink-bar{
+  right: auto;
+  left: 0;
+}
+.ant-tabs .ant-tabs-left-bar .ant-tabs-tab{
+  border: 1px solid #ddd;
+  margin-bottom: 0;
+  border-bottom: 0;
+  width: 200px;
+  line-height: 50px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #fff;
+  text-align: left;
+}
+.ant-tabs .ant-tabs-left-bar .ant-tabs-tab:last-child{
+  border-bottom: 1px solid #ddd;
+}
+.ant-tabs .ant-tabs-left-bar .ant-tabs-nav-wrap{
+  margin-right: 0;
+}
+.ant-tabs-ink-bar .ant-tabs-ink-bar-animated{
+  height: 50px !important;
+}
+.ant-tabs-ink-bar{
+  background-color: #066EB7;
+}
+.ant-tabs-nav .ant-tabs-tab-active{
+  color: #066EB7;
+}
+.ant-tabs-nav .ant-tabs-tab:hover{
+  color: #066EB7;
+}
+.ant-tabs .ant-tabs-left-content{
+  padding-left: 20px;
+  border: 0;
+}
+.ant-tabs-tabpane,.ant-tabs-tabpane-active {
+  background: #fff;
+  padding: 20px;
+  min-height: 500px;
+}

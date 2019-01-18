@@ -1,0 +1,102 @@
+@import '~antd/dist/antd.css';
+@import './assets/css/reset.css';
+.ant-layout-header {
+  background: #fff;
+  height: 80px;
+  line-height: 80px;
+  padding: 0;
+}
+.header_ul{
+  width: 1200px;
+  margin: 0 auto;
+}
+.header_ul li {
+  float: left;
+}
+.fr{
+  float: right !important;
+}
+.header__li_logo {
+  width: 150px;
+  height: 80px;
+  padding: 20px 0;
+  margin-right: 40px;
+}
+
+.header__li_logo .photo {
+  width: 100%;
+  height: 100%;
+  background: url('./assets/images/blue-cn.png') no-repeat;
+  background-size: 100%;
+}
+
+.header__li_title {
+  color: #333;
+  font-size: 18px;
+  position: relative;
+  padding-left: 40px;
+}
+.header__li_title::before{
+  position: absolute;
+  content: ' ';
+  width: 1px;
+  height: 40px;
+  background: #e9e9e9;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ant-btn-danger{
+  color: #f08229;
+  border-color: #f08229;
+  background-color: #fff;
+}
+.ant-btn-danger:hover{
+  color: #fff;
+  background-color: #f08229;
+  border-color: #f08229;
+}
+.ant-menu-submenu-title{
+  line-height: 80px;
+  font-size: 18px;
+  color: #066eb7;
+}
+.ant-menu-submenu-title:hover{
+  color: #066eb7;
+}
+.ant-menu-submenu-title .anticon{
+  font-size: 18px;
+}
+.anticon-user{
+  color: rgb(96, 98, 102);
+}
+.anticon-caret-down{
+  color: #066eb7;
+}
+.ant-menu-horizontal{
+  border-bottom: 0;
+}
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
+  border-bottom: 0;
+}
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
+  border-bottom: 0;
+}
+.ant-menu-submenu > .ant-menu{
+  min-width: 120px !important;
+}
+.ant-layout-content{
+  min-height: 82vh;
+  width: 1200px;
+  margin: 0 auto;
+}
+.ant-layout-footer{
+  background: #373D42;
+}
+.ellipsis{
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
+}
