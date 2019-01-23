@@ -16,6 +16,13 @@
   padding-bottom: 0;
   background: #fff;
   text-align: left;
+  padding: 0;
+}
+.ant-tabs .ant-tabs-left-bar .ant-tabs-tab a{
+  display: inline-block;
+  padding: 0 30px;
+  width: 100%;
+  height: 100%;
 }
 .ant-tabs .ant-tabs-left-bar .ant-tabs-tab:last-child{
   border-bottom: 1px solid #ddd;
@@ -29,10 +36,10 @@
 .ant-tabs-ink-bar{
   background-color: #066EB7;
 }
-.ant-tabs-nav .ant-tabs-tab-active{
+.ant-tabs-nav .ant-tabs-tab-active a{
   color: #066EB7;
 }
-.ant-tabs-nav .ant-tabs-tab:hover{
+.ant-tabs-nav .ant-tabs-tab:hover a{
   color: #066EB7;
 }
 .ant-tabs .ant-tabs-left-content{

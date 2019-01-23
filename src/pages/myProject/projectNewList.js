@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class projectNewList extends Component {
+class ProjectNewList extends Component {
   render() {
     return (
       <div>
-        
+        新询价项目
       </div>
     );
   }
 }
 
-export default projectNewList;
+export default ProjectNewList;

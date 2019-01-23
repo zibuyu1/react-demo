@@ -4,7 +4,7 @@ class receiveQuoteList extends Component {
   render() {
     return (
       <div>
-        
+        收到报价
       </div>
     );
   }

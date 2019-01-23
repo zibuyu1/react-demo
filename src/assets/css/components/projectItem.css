@@ -1,0 +1,36 @@
+.table_header .ant-table-placeholder{
+  height: 0;
+  overflow: hidden;
+}
+.table_header .ant-table-placeholder{
+  border: 0;
+  padding: 0;
+}
+.table_header .ant-table-thead{
+  border: 1px solid #ddd;
+}
+.table_header .ant-table-thead > tr > th{
+  background: rgb(230, 247, 255);
+}
+.table_header .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+.table_body .table_body_header > ul >li{
+  float: left;
+}
+.table_body .table_body_header > ul >li.fr{
+  float: right;
+}
+.table_body{
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+.table_body_header{
+  background: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  font-size: 12px;
+}
