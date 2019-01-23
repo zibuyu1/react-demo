@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Link
+  Link,
 } from 'react-router-dom';
 import './App.css';
 import { Layout, Button, Menu, Icon } from 'antd';
@@ -14,6 +14,7 @@ import api from './api/index';
 import PublishMode from './pages/publishMode';
 import myProject from './pages/myProject';
 import index from './pages/index';
+import projectDetail from './pages/projectDetail';
 const {
   Header, Footer, Content,
 } = Layout;
@@ -118,6 +119,7 @@ class App extends Component {
             <Route path="/index" component={index} />
             <Route path="/PublishMode" component={PublishMode} />
             <Route path="/myProject" component={myProject} />
+            <Route path="/projectDetail" component={projectDetail} />
           </Content>
           <Footer>Footer</Footer>
         </Layout>

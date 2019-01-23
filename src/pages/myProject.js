@@ -1,76 +1,61 @@
 import React, { Component } from 'react';
-import { Tabs, Empty } from 'antd';
+import { Tabs } from 'antd';
 import '../assets/css/myProject.css';
 import { ROUTES } from '../config/router';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  NavLink,
+  Redirect,
 } from 'react-router-dom';
 
 const TabPane = Tabs.TabPane;
+const activeStyle = {
+  'borderLeft': '2px solid #066EB7',
+  'color': '#066EB7'
+}
 
 class myProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tabPosition: 'left',
-      activeKey: ROUTES[0].key,
       projectRoute: ROUTES,
 
     }
   }
 
-  componentWillMount() {
-    const pathname = this.props.history.location.pathname;
-    this.setCHeckedUrl(pathname);
-  }
-
-  componentDidMount() {
-    this.props.history.listen((route) => {
-      this.setCHeckedUrl(route.pathname)
-    })
-  }
-  
-  setCHeckedUrl(activeKey) {
-    if (activeKey === '/myProject') {
-      this.props.history.push(ROUTES[0].key);
-    } else {
-      this.setState({ activeKey });
+  componentWillUnmount() {
+    this.setState = (state, callback) => {
+      return;
     }
   }
-
-  onChange = (activeKey) => {
-    this.setState({ activeKey });
-  }
-  
   render() {
+    const pathname = this.props.history.location.pathname;
     return (
-      <Router>
-        <div className="tabs_name">
-          <Tabs activeKey={this.state.activeKey}
-            tabPosition={this.state.tabPosition}
-            onChange={this.onChange}>
-            {
-              this.state.projectRoute.map(route =>
-                <TabPane tab={<Link to={route.link}>{route.label}</Link>} key={route.key}>
-                  {
-                    this.state.projectRoute.map((route, index) =>
-                      {
-                        let routerHtml;
-                        if (route.link === this.state.activeKey) {
-                          routerHtml = (
-                            <Route key={route.key} path={route.link} component={route.component} />
-                          )
-                        }
-                        return routerHtml;
-                      })
+      <div className="tabs_name">
+        <Tabs tabPosition={this.state.tabPosition}>
+          {
+            this.state.projectRoute.map(route =>
+              <TabPane tab={<NavLink to={route.link} activeStyle={activeStyle}>{route.label}</NavLink>} key={route.key}>
+                {
+                  this.state.projectRoute.map((route, index) => {
+                    let routeStr;
+                    if (pathname === '/myProject') {
+                      routeStr = <Route key={route.key} path="/myProject" exact render={() => (
+                        <Redirect to="/myProject/projectAllList" />
+                      )} />
+                    } else {
+                      routeStr = <Route key={route.key} path={route.link} component={route.component} />
+                    }
+                    return routeStr;
                   }
-                </TabPane>)
-            }
-          </Tabs>
-        </div>
-      </Router>
+                  )
+                }
+              </TabPane>)
+          }
+        </Tabs>
+      </div>
     );
   }
 }

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 import '../assets/css/components/projectItem.css';
 
+import {
+  BrowserRouter as Router,
+  Link,
+} from 'react-router-dom';
+
 class ProjectItem extends Component {
   constructor(props){
     super(props);
@@ -60,7 +65,9 @@ class ProjectItem extends Component {
           <div className="table_body_header">
             <ul className="clearfix">
               <li onClick={()=>{this.props.currentPage(2)}}>项目编号：{this.props.pages}</li>
-              <li className="fr">提交时间：2019-01-21 10:07:46</li>
+              <li className="fr">
+                <Link to="/projectDetail">详情</Link>
+              </li>
             </ul>
           </div>
           <Table showHeader={false} bordered={true} columns={this.columns} dataSource={this.props.dataSource} />

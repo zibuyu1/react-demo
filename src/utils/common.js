@@ -20,7 +20,6 @@ class CommonApiData{
     .catch((err) => {
   
     })
-}
-
+  }
 }
 export default CommonApiData;

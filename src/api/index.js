@@ -13,12 +13,12 @@ const api = {
   /**
    * 获取项目列表
    */
-  projectAll(url, curPage, newConfig) {
+  projectAll(url, curPage) {
     const config = {
       url: `${url}/${curPage}`,
       method: 'GET',
     };
-    return Axios(Object.assign(config, newConfig));
+    return Axios(config);
   },
 }
 export default api;

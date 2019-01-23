@@ -33,11 +33,12 @@
 .ant-tabs-ink-bar .ant-tabs-ink-bar-animated{
   height: 50px !important;
 }
-.ant-tabs-ink-bar{
-  background-color: #066EB7;
+.ant-tabs .ant-tabs-left-bar .ant-tabs-ink-bar, .ant-tabs .ant-tabs-right-bar .ant-tabs-ink-bar{
+  width: 0;
 }
 .ant-tabs-nav .ant-tabs-tab-active a{
-  color: #066EB7;
+  /* color: #066EB7; */
+  font-weight: 400;
 }
 .ant-tabs-nav .ant-tabs-tab:hover a{
   color: #066EB7;

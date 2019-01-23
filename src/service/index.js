@@ -18,7 +18,6 @@ axios.interceptors.response.use((response) => {
   return response.data;
 }, (error) => {
   // 对响应错误做点什么
-  window.location.href = urls.loginUrl;
   return Promise.reject(error);
 });
 

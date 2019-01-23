@@ -20,12 +20,7 @@ class ProjectList extends Component {
     this.setState({
       pages: page
     });
-    // this.getListData(page, this);
-  }
-
-  componentDidMount() {
-    console.log(9999)
-    this.getListData(this.state.pages, this);
+    this.getListData(page, this);
   }
 
   getListData(page, _this) {
@@ -33,6 +28,17 @@ class ProjectList extends Component {
       cancelToken: source.token
     };
     CommonApiData.getListData(this.state.url, page, config, _this);
+  }
+
+  componentWillMount() {
+    console.log(9999)
+    // this.getListData(this.state.pages, this);
+  }
+
+  componentWillUnmount() {
+    this.setState = (state, callback) => {
+      return;
+    }
   }
 
   render() {
