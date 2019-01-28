@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import '../assets/css/components/projectItem.css';
 
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Link,
 } from 'react-router-dom';
 

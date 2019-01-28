@@ -3,7 +3,6 @@ import { Tabs } from 'antd';
 import '../assets/css/myProject.css';
 import { ROUTES } from '../config/router';
 import {
-  BrowserRouter as Router,
   Route,
   NavLink,
   Redirect,
