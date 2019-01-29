@@ -31,7 +31,6 @@ class ProjectList extends Component {
   }
 
   componentWillMount() {
-    console.log(9999)
     // this.getListData(this.state.pages, this);
   }
 

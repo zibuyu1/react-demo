@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
+import 'emoji-mart/css/emoji-mart.css';
 import { addToCart , updateCart, deleteFromCart } from './redux/action/cart-actions';
 import {
   BrowserRouter as Router,
@@ -8,7 +9,7 @@ import {
   Redirect,
   Link,
 } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import { Layout, Button, Menu, Icon } from 'antd';
 import api from './api/index';
 import PublishMode from './pages/publishMode';

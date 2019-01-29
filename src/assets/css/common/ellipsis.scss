@@ -1,0 +1,23 @@
+.ellipsis_wrap{
+  max-height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  max-height: 40px;
+  overflow: hidden;
+  word-break: break-all;
+  position: relative;
+  cursor: pointer;
+  .dot{
+    position: absolute;
+    right: -1px;
+    bottom: 0;
+    width: 30px;
+    height: 20px;
+    line-height: 20px;
+    text-align: right;
+    background: -webkit-linear-gradient(left, transparent, #fff 55%);
+    background: -o-linear-gradient(right, transparent, #fff 55%);
+    background: -moz-linear-gradient(right, transparent, #fff 55%);
+    background: linear-gradient(to right, transparent, #fff 55%);
+  }
+}

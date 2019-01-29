@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Upload, Button, Icon,
+  Upload
 } from 'antd';
 
 class UploadFile extends Component {
   constructor(props) {
     super(props);
-
+    
+    // this指针丢失，通过bind,this指向都是当前实例化对象。
     this.arrAddItem = this.arrAddItem.bind(this);
     this.handleDone = this.handleDone.bind(this);
     this.handleError = this.handleError.bind(this);
@@ -16,29 +17,15 @@ class UploadFile extends Component {
   }
   
   beforeUpload(file, fileList) {
-    // 文件类型限制
-    const name = file.name ? file.name : '';
-    const ext = name
-      ? name.substr(name.lastIndexOf('.') + 1, name.length)
-      : true;
-    const isExt = this.props.accept.indexOf(ext) < 0;
-    if (isExt) {
-      return false;
-    }
-    // 文件大小限制
-    const isLt25M = file.size / 1024 / 1024;
-    // 空文件
-    if (file.size === 0 ) {
-      return false;
-    }
-    if (isLt25M > 25) {
+    const result = this.props.limitSizeAndType(file, this);
+    if (!result) {
       return false;
     }
     this.arrAddItem(file);
   }
 
   handleChange(info) {
-    // 状态有：uploading done error removed
+    // 状态有：uploading, done, error, removed
     const uid = info.file.uid;
     const status = info.file.status;
     const arr = this.props.fileList;
@@ -167,9 +154,7 @@ class UploadFile extends Component {
     }
     return (
       <Upload {...props}>
-        <Button>
-          <Icon type="upload" /> Click to Upload
-        </Button>
+        <this.props.soltHtml />
       </Upload>
     );
   }
