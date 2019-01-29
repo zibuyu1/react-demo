@@ -35,18 +35,6 @@ const columns = [
   }
 ];
 
-function HelloComponent(props) {
-  let htmlStr;
-  if (props.fileList.length) {
-    htmlStr = (<Table dataSource={props.fileList} columns={columns} />);
-  } else {
-    htmlStr = (<Empty />);
-  }
-  return htmlStr;
-}
-
-
-
 class projectDetail extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +45,15 @@ class projectDetail extends Component {
     }
     this.soltHtml = this.soltHtml.bind(this);
     this.limitSizeAndType = this.limitSizeAndType.bind(this);
+    this.helloComponent = this.helloComponent.bind(this);
   }
 
+  /**
+   *父组件改变值
+   *
+   * @param {*} arr
+   * @memberof projectDetail
+   */
   changeFileList(arr) {
     arr.forEach((element, index) => {
       element.key = index;
@@ -68,6 +63,14 @@ class projectDetail extends Component {
     });
   }
 
+  /**
+   *限制文件上传的类型及大小
+   *
+   * @param {*} file
+   * @param {*} _this
+   * @returns
+   * @memberof projectDetail
+   */
   limitSizeAndType(file, _this) {
     // 文件类型限制
     const name = file.name ? file.name : '';
@@ -90,6 +93,29 @@ class projectDetail extends Component {
     return true;
   }
 
+  /**
+   *函数组件传参
+   *
+   * @param {*父组件传过来的参数} props
+   * @returns
+   * @memberof projectDetail
+   */
+  helloComponent(props) {
+    let htmlStr;
+    if (props.fileList.length) {
+      htmlStr = (<Table dataSource={props.fileList} columns={columns} />);
+    } else {
+      htmlStr = (<Empty />);
+    }
+    return htmlStr;
+  }
+
+  /**
+   *插值
+   *
+   * @returns
+   * @memberof projectDetail
+   */
   soltHtml() {
     return (
       <Button>
@@ -109,7 +135,7 @@ class projectDetail extends Component {
         limitSizeAndType={this.limitSizeAndType}
         changeFileList={arr=>this.changeFileList(arr)} />
         {/* 自定义上传列表样式 */}
-        <HelloComponent fileList={this.state.fileList} />
+        <this.helloComponent fileList={this.state.fileList} />
       </div>
     );
   }

@@ -6,7 +6,7 @@ import {
 class UploadFile extends Component {
   constructor(props) {
     super(props);
-    
+
     // this指针丢失，通过bind,this指向都是当前实例化对象。
     this.arrAddItem = this.arrAddItem.bind(this);
     this.handleDone = this.handleDone.bind(this);
@@ -16,6 +16,14 @@ class UploadFile extends Component {
     this.handleUploading = this.handleUploading.bind(this);
   }
   
+  /**
+   *文件上传前的验证
+   *
+   * @param {*} file
+   * @param {*} fileList
+   * @returns
+   * @memberof UploadFile
+   */
   beforeUpload(file, fileList) {
     const result = this.props.limitSizeAndType(file, this);
     if (!result) {
@@ -24,6 +32,12 @@ class UploadFile extends Component {
     this.arrAddItem(file);
   }
 
+  /**
+   *文件上传的状态，根据状态做一些操作
+   *
+   * @param {*} info
+   * @memberof UploadFile
+   */
   handleChange(info) {
     // 状态有：uploading, done, error, removed
     const uid = info.file.uid;
