@@ -37,7 +37,8 @@
   width: 0;
 }
 .ant-tabs-nav .ant-tabs-tab-active a{
-  /* color: #066EB7; */
+  color: #066EB7;
+  border-left: 2px solid #066EB7;
   font-weight: 400;
 }
 .ant-tabs-nav .ant-tabs-tab:hover a{

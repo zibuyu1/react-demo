@@ -164,3 +164,9 @@ button {
 .swal-button {
   background-color: #066eb7;
 }
+
+input:focus{
+  outline:none !important;
+  border: none !important;
+  -webkit-appearance: none !important;
+}

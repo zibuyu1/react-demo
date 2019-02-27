@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
+import { Table, Pagination } from 'antd';
 import '../assets/css/components/projectItem.css';
 import Ellipsis from './common/ellipsis.js';
 
@@ -26,9 +26,10 @@ class ProjectItem extends Component {
         render: (record) => (
           <div className="projectStyle">
             {record.projectVo.name}
-            <img src="http://react-china.org/uploads/default/38/c4b96a594bd352e0.png" alt="" />
+            <img style={{width: "40px"}} src="http://react-china.org/uploads/default/38/c4b96a594bd352e0.png" alt="" />
           </div>
         ),
+        width: 400,
       },
       {
         title: '订单总额',
@@ -45,8 +46,9 @@ class ProjectItem extends Component {
         title: '状态',
         key: 'type',
         align: 'left',
+        width: 100,
         render: () => {
-          let userMsg;
+          let userMsg = null;
           if (this.props.dataSource.length) {
             userMsg = (
               <span>有数组</span>
@@ -67,6 +69,10 @@ class ProjectItem extends Component {
     ];
   }
 
+  // onChange(pageNumber) {
+  //   this.props.currentPage(pageNumber);
+  // }
+
   render() {
     return (
       <div>
@@ -80,11 +86,24 @@ class ProjectItem extends Component {
             <ul className="clearfix">
               <li onClick={() => { this.props.currentPage(2) }}>项目编号：{this.props.pages}</li>
               <li className="fr">
-                <Link to="/projectDetail">详情</Link>
+                <Link to={`${this.props.details}?id=MHFS-822960`}>详情</Link>
               </li>
             </ul>
           </div>
-          <Table showHeader={false} bordered={true} columns={this.columns} dataSource={this.props.dataSource} />
+          {/* 列表 */}
+          <Table 
+          bordered={true} 
+          pagination={false}
+          showHeader={false} 
+          columns={this.columns} 
+          dataSource={this.props.dataSource} />
+          {/* 分页 */}
+          <Pagination 
+          defaultCurrent={this.props.pages} 
+          total={this.props.total} 
+          onChange={this.props.currentPage} />
+          
+          
           {/* <Picker set='emojione' />
           <Picker onSelect={this.addEmoji} />
           <Picker title='Pick your emoji…' emoji='point_up' />

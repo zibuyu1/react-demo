@@ -1,0 +1,86 @@
+.publishMode{
+  width: 900px;
+  margin: 0 auto;
+  padding: 60px 0 300px 0;
+  .ant-card-body{
+    height: 380px;
+  }
+  .title_header{
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.025);
+    position: relative;
+    .ant-comment-inner{
+      padding: 0 20px;
+      .ant-comment-avatar{
+        margin-right: 0;
+      }
+      .ant-comment-content-author{
+        margin-bottom: 0;
+      }
+      .ant-avatar, .ant-comment-avatar img{
+        width: 36px;
+        height: 50px;
+        border-radius: 0;
+      }
+      .ant-comment-content-detail .title{
+        text-align: center;
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 50px;
+      }
+      .title_msg{
+        text-align: center;
+        font-size: 12px;
+        color: #eee;
+      }
+    }
+  }
+  .contentStyle{
+    .ant-comment-inner{
+      align-items: center !important;
+    }
+    .ant-comment-content-detail p{
+      font-size: 14px;
+      color: #666;
+    }
+    .ant-avatar, .ant-comment-avatar img{
+      width: 36px;
+      height: 36px;
+    }
+    .ant-comment-inner{
+      padding: 0;
+      padding-bottom: 20px;
+    }
+  }
+  .mode{
+    float: left;
+    height: 450px;
+  }
+  .mode:nth-child(2) {
+    float: right;
+  }
+  .btn{
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 20px;
+    .ant-btn{
+      width: 180px;
+      height: 40px;
+    }
+    .ant-btn-primary{
+      background: #066EB7;
+      border-color: #066EB7;
+    }
+    .watchVideo{
+      font-size: 12px;
+      color: #066EB7;
+      margin-top: 10px;
+      height: 18px;
+      width: 180px;
+    }
+  }
+}

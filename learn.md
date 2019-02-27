@@ -1,3 +1,4 @@
+React Route 组件重复渲染
 es6 Class
 es5
 function Parent(x, y) {

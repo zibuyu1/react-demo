@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import ProjectItem from '../../components/projectItem';
 import CommonApiData from '../../utils/common';
-import axios from 'axios';
+import { Empty, Spin } from 'antd';
 
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
 class ProjectList extends Component {
   constructor(props){
     super(props);
-    
+
     this.state = {
       url: 'oss/buyer/project/list',
+      details: '/project/list/detail',
+      loading: true,
       dataSource: [],
+      total: 0,
       pages: 1,
     }
+    this.currentPage = this.currentPage.bind(this);
   }
-
+  
   currentPage(page){
     this.setState({
       pages: page
@@ -24,14 +26,11 @@ class ProjectList extends Component {
   }
 
   getListData(page, _this) {
-    const config = {
-      cancelToken: source.token
-    };
-    CommonApiData.getListData(this.state.url, page, config, _this);
+    CommonApiData.getListData(this.state.url, page, _this);
   }
 
   componentWillMount() {
-    // this.getListData(this.state.pages, this);
+    this.getListData(this.state.pages, this);
   }
 
   componentWillUnmount() {
@@ -43,10 +42,20 @@ class ProjectList extends Component {
   render() {
     return (
       <div>
-        <ProjectItem 
-        dataSource={this.state.dataSource}
-        pages={this.state.pages}
-        currentPage={page=>this.currentPage(page)} />
+        {
+          this.state.loading
+          ? <Spin />
+          : (this.state.dataSource.length === 0
+            ? <Empty />
+            : (<ProjectItem 
+              pages={this.state.pages}
+              total={this.state.total}
+              loading={this.state.loading}
+              details={this.state.details}
+              dataSource={this.state.dataSource}
+              currentPage={page=>this.currentPage(page)} />)
+            )
+        }
       </div>
     );
   }

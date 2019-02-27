@@ -11,26 +11,31 @@ const columns = [
   {
     title: '文件id',
     dataIndex: 'uid',
-    key: 'uid'
+    key: 'uid',
+    type: 1,
   },
   {
     title: '文件名',
     dataIndex: 'originalName',
-    key: 'originalName'
+    key: 'originalName',
+    type: 1,
   },
   {
     title: '文件状态',
     dataIndex: 'status',
-    key: 'status'
+    key: 'status',
+    type: 2,
   },
   {
     title: '上传进度',
     dataIndex: 'progress',
+    type: 1,
     render: (text, record, index) => <i>{text}</i>,
   },
   {
     title: 'Action',
     key: 'Action',
+    type: 1,
     render: () => <i>324</i>,
   }
 ];
@@ -103,7 +108,18 @@ class projectDetail extends Component {
   helloComponent(props) {
     let htmlStr;
     if (props.fileList.length) {
-      htmlStr = (<Table dataSource={props.fileList} columns={columns} />);
+      const type = 1;
+      htmlStr = (()=>{
+        if (type === 1) {
+          return (<Table dataSource={props.fileList} columns={columns.filter((item)=>{
+            return item.type === 1;
+          })} />)
+        } else if (type === 2) {
+          return (<Table dataSource={props.fileList} columns={columns.filter((item)=>{
+            return item.type === 2;
+          })} />)
+        }
+      })();
     } else {
       htmlStr = (<Empty />);
     }
@@ -123,17 +139,19 @@ class projectDetail extends Component {
       </Button>
     )
   }
-  
+
   render() {
+    const props = {
+      soltHtml: this.soltHtml,
+      action: this.state.action,
+      accept: this.state.accept,
+      fileList: this.state.fileList,
+      limitSizeAndType: this.limitSizeAndType,
+      changeFileList: arr => this.changeFileList(arr)
+    }
     return (
       <div>
-        <UploadFile 
-        accept={this.state.accept}
-        action={this.state.action}
-        fileList={this.state.fileList}
-        soltHtml={this.soltHtml}
-        limitSizeAndType={this.limitSizeAndType}
-        changeFileList={arr=>this.changeFileList(arr)} />
+        <UploadFile {...props} />
         {/* 自定义上传列表样式 */}
         <this.helloComponent fileList={this.state.fileList} />
       </div>

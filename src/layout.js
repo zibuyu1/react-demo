@@ -17,7 +17,7 @@ const {
   Header, Footer, Content,
 } = Layout;
 const SubMenu = Menu.SubMenu;
-class App extends Component {
+class LayoutComp extends Component {
   constructor(props) {
     super(props);
     
@@ -58,7 +58,6 @@ class App extends Component {
     this.setState({
       language: nextProps.language,
     })
-    // if (nextProps.language)
   }
 
   componentWillMount() {
@@ -69,7 +68,6 @@ class App extends Component {
     this.props.addToCart('Flour 1kg', 2, 110);
     this.props.addToCart('Juice 2L', 1, 250);
     this.props.deleteFromCart('Coffee 500gm');
-    this.props.setLang('en');
     this.setState({
       shoppingCartArr: this.props.shoppingCart.cart,
     });
@@ -155,4 +153,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 // export default App;
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(LayoutComp);

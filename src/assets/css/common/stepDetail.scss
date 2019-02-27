@@ -1,0 +1,52 @@
+.stepDetail{
+  display: flex;
+  .steps-item{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .steps-item-content{
+      position: absolute;
+      width: 100%;
+      top: 20px;
+      text-align: center;
+      word-break: break-all;
+    }
+    &:before, &:after{
+      position: absolute;
+      content: ' ';
+      width: 50%;
+      height: 2px;
+      top: 50%;
+      background: #ddd;
+      transform: translateY(-50%);
+    }
+    &:before{
+      left: -10px;
+    }
+    &:after{
+      right: -10px;
+    }
+  }
+  .steps-item:first-child{
+    &:before{
+      width: 0;
+    }
+  }
+  .steps-item:last-child{
+    &:after{
+      width: 0;
+    }
+  }
+  .steps-item-finished{
+    &:before, &:after{
+      background: #1890ff;
+    }
+  }
+  .steps-item-error{
+    &:before, &:after{
+      background: #f5222d;
+    }
+  }
+}

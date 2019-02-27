@@ -112,8 +112,8 @@ class UploadFile extends Component {
    * @memberof UploadFile
    */
   handleDone(info, arr, uid) {
-    const bizCode = info.file.response.rspResult.bizCode;
     const response = info.file.response;
+    const bizCode = response.rspResult.bizCode || null;
     if (bizCode === 200) {
       for (let i = 0; i < arr.length; i++) {
         const element = arr[i];
